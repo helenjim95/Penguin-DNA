@@ -100,8 +100,7 @@ public class PenguinDNA {
         } else {
             String binded_chain = chain1 + chain2;
 //            count whether the sequence contains more than once
-            ;
-            isPenguinDNA = !ContainsMoreThanOnce(binded_chain, sequence) && !ContainsMoreThanOnce(chain1, sequence) && !ContainsMoreThanOnce(chain2, sequence);
+            isPenguinDNA = !ContainsMoreThanOnce(chain1, sequence) && !ContainsMoreThanOnce(chain2, sequence);
         }
         return isPenguinDNA;
     }
