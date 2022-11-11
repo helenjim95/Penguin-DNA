@@ -70,7 +70,7 @@ public class PenguinDNA {
                     break;
             }
         }
-        return String.join(",", matchingChain_list);
+        return String.join("", matchingChain_list);
     }
 
     public static boolean isPenguinDNA(String chain1, String chain2, String sequence) {
