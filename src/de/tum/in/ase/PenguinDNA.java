@@ -90,7 +90,7 @@ public class PenguinDNA {
 //        This means that both chains (first two method parameters) should be able to bind to each other
 //        they contain the given nucleotide sequence (third method parameter).
 //        The nucleotide sequence can be in either chain, but should not occur more than once.
-        boolean isPenguinDNA = false;
+        boolean isPenguinDNA = true;
         boolean isMatch = checkChains(chain1, chain2);
 //        boolean isContain = false;
         if (chain1 == null || chain2 == null || chain1.length() == 0 || chain2.length() == 0 || sequence.length() == 0) {
@@ -98,13 +98,11 @@ public class PenguinDNA {
         } else if (!isMatch) {
             isPenguinDNA = false;
         } else {
-            String binded_chain = chain1 + chain2;
 //            count whether the sequence contains more than once
             isPenguinDNA = !ContainsMoreThanOnce(chain1, sequence) && !ContainsMoreThanOnce(chain2, sequence);
         }
         return isPenguinDNA;
     }
-
 
 
     public static void main(String[] args) {
