@@ -9,34 +9,38 @@ public class PenguinDNA {
 //        The DNA of a penguin is made up of 4 nucleotides: Cytosine (C), Guanine (G), Adenine (A), and Thymine (T).
 //        Adenine and Thymine will form a bond, same for Guanine and Cytosine
         boolean isBond = true;
-        for (int i = 0; i < chain1.length(); i++) {
-            String nucleotide_one = String.valueOf(chain1.charAt(i));
-            String nucleotide_two = String.valueOf(chain2.charAt(i));
-            switch (nucleotide_one) {
-                case "C":
-                    if (!nucleotide_two.equals("G")) {
-                        isBond = false;
+        if (chain1.length() == 0 || chain2.length() == 0) {
+            isBond = false;
+        } else {
+            for (int i = 0; i < chain1.length(); i++) {
+                String nucleotide_one = String.valueOf(chain1.charAt(i));
+                String nucleotide_two = String.valueOf(chain2.charAt(i));
+                switch (nucleotide_one) {
+                    case "C":
+                        if (!nucleotide_two.equals("G")) {
+                            isBond = false;
+                            break;
+                        }
                         break;
-                    }
-                    break;
-                case "G":
-                    if (!nucleotide_two.equals("C")) {
-                        isBond = false;
+                    case "G":
+                        if (!nucleotide_two.equals("C")) {
+                            isBond = false;
+                            break;
+                        }
                         break;
-                    }
-                    break;
-                case "A":
-                    if (!nucleotide_two.equals("T")) {
-                        isBond = false;
+                    case "A":
+                        if (!nucleotide_two.equals("T")) {
+                            isBond = false;
+                            break;
+                        }
                         break;
-                    }
-                    break;
-                case "T":
-                    if (!nucleotide_two.equals("A")) {
-                        isBond = false;
+                    case "T":
+                        if (!nucleotide_two.equals("A")) {
+                            isBond = false;
+                            break;
+                        }
                         break;
-                    }
-                    break;
+                }
             }
         }
         return isBond;
@@ -46,31 +50,35 @@ public class PenguinDNA {
         //TODO: Create a matching chain for chain1
         List<String> matchingChain_list = new ArrayList<>();
         String matchingChain = "";
-        for (int i = 0; i < chain1.length(); i++) {
-            String nucleotide_one = String.valueOf(chain1.charAt(i));
-            switch (nucleotide_one) {
-                case "C":
-                    matchingChain = "G";
-                    matchingChain_list.add(matchingChain);
-                    break;
-                case "G":
-                    matchingChain = "C";
-                    matchingChain_list.add(matchingChain);
-                    break;
-                case "A":
-                    matchingChain = "T";
-                    matchingChain_list.add(matchingChain);
-                    break;
-                case "T":
-                    matchingChain = "A";
-                    matchingChain_list.add(matchingChain);
-                    break;
-                default:
-                    matchingChain = "";
-                    break;
+        if (chain1.length() == 0) {
+            return false;
+        } else {
+            for (int i = 0; i < chain1.length(); i++) {
+                String nucleotide_one = String.valueOf(chain1.charAt(i));
+                switch (nucleotide_one) {
+                    case "C":
+                        matchingChain = "G";
+                        matchingChain_list.add(matchingChain);
+                        break;
+                    case "G":
+                        matchingChain = "C";
+                        matchingChain_list.add(matchingChain);
+                        break;
+                    case "A":
+                        matchingChain = "T";
+                        matchingChain_list.add(matchingChain);
+                        break;
+                    case "T":
+                        matchingChain = "A";
+                        matchingChain_list.add(matchingChain);
+                        break;
+                    default:
+                        matchingChain = "";
+                        break;
+                }
             }
+            return String.join("", matchingChain_list);
         }
-        return String.join("", matchingChain_list);
     }
 
     public static boolean isPenguinDNA(String chain1, String chain2, String sequence) {
@@ -82,11 +90,14 @@ public class PenguinDNA {
         boolean isMatch = checkChains(chain1, chain2);
         boolean isContain = false;
 
-
-        if (isMatch && (chain1.contains(sequence) || chain2.contains(sequence))) {
-            return true;
+        if (chain1.length() == 0 || chain2.length() == 0 || sequence.length() == 0) {
+            return false;
+        } else {
+            if (isMatch && (chain1.contains(sequence) || chain2.contains(sequence))) {
+                return true;
+            }
+            return false;
         }
-        return false;
     }
 
     public static void main(String[] args) {
