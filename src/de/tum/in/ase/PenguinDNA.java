@@ -11,7 +11,7 @@ public class PenguinDNA {
         boolean isBond = true;
         for (int i = 0; i < chain1.length(); i++) {
             String nucleotide_one = String.valueOf(chain1.charAt(i));
-            String nucleotide_two = String.valueOf(chain1.charAt(i));
+            String nucleotide_two = String.valueOf(chain2.charAt(i));
             switch (nucleotide_one) {
                 case "C":
                     if (!nucleotide_two.equals("G")) {
@@ -81,6 +81,8 @@ public class PenguinDNA {
         boolean isPenguinDNA = false;
         boolean isMatch = checkChains(chain1, chain2);
         boolean isContain = false;
+
+
         if (isMatch && (chain1.contains(sequence) || chain2.contains(sequence))) {
             return true;
         }
