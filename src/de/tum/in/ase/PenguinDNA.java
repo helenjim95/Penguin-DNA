@@ -81,6 +81,10 @@ public class PenguinDNA {
         }
     }
 
+    public static boolean ContainsMoreThanOnce(String full, String part) {
+        int first = full.indexOf(part);
+        return first !=-1 && first != full.lastIndexOf(part);
+    }
     public static boolean isPenguinDNA(String chain1, String chain2, String sequence) {
         //TODO: Checking penguin DNA
 //        This means that both chains (first two method parameters) should be able to bind to each other
@@ -95,15 +99,18 @@ public class PenguinDNA {
             return false;
         } else {
             String binded_chain = chain1 + chain2;
-            return binded_chain.contains(sequence);
+//            count whether the sequence contains more than once
+            return !ContainsMoreThanOnce(binded_chain, sequence);
         }
     }
+
+
 
     public static void main(String[] args) {
         String chain1 = "ACGTT";
         String chain2 = "TGCAA";
         String chain3 = "GTTAC";
-        String sequence = "TT";
+        String sequence = "T";
 //        System.out.printf("checkChains 1 & 2 %b%n", checkChains(chain1, chain2));
 //        System.out.printf("checkChains 2 & 3 %b%n", checkChains(chain2, chain3));
 //        System.out.printf("checkChains 1 & 3 %b%n", checkChains(chain1, chain3));
