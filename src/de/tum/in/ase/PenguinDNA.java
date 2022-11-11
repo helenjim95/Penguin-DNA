@@ -81,9 +81,12 @@ public class PenguinDNA {
         }
     }
 
-    public static boolean ContainsMoreThanOnce(String full, String part) {
-        int first = full.indexOf(part);
-        return first !=-1 && first != full.lastIndexOf(part);
+    public static boolean containsOnlyOnce(String fullString, String subString) {
+        int firstIndex = fullString.indexOf(subString);
+        System.out.printf("firstIndex of the substring: %d, lastIndex: %d%n", fullString.indexOf(subString), fullString.lastIndexOf(subString));
+//        if fullString does not contain subString, firstIndex = -1
+//        if fullString contains subString more than once, then firstIndex of subString != lastIndex of subString in the fullString
+        return firstIndex !=-1 && firstIndex == fullString.lastIndexOf(subString);
     }
     public static boolean isPenguinDNA(String chain1, String chain2, String sequence) {
         //TODO: Checking penguin DNA
@@ -99,7 +102,7 @@ public class PenguinDNA {
             isPenguinDNA = false;
         } else {
 //            count whether the sequence contains more than once
-            isPenguinDNA = !ContainsMoreThanOnce(chain1, sequence) && !ContainsMoreThanOnce(chain2, sequence);
+            isPenguinDNA = containsOnlyOnce(chain1, sequence) || containsOnlyOnce(chain2, sequence);
         }
         return isPenguinDNA;
     }
@@ -114,7 +117,9 @@ public class PenguinDNA {
 //        System.out.printf("checkChains 2 & 3 %b%n", checkChains(chain2, chain3));
 //        System.out.printf("checkChains 1 & 3 %b%n", checkChains(chain1, chain3));
 //        System.out.printf("createMatchingChain %s%n", createMatchingChain(chain1));
-        System.out.printf("isPenguinDNA %b%n", isPenguinDNA(chain1, chain2, sequence));
+//        System.out.println(containsOnlyOnce(chain1, sequence));
+//        System.out.printf("isPenguinDNA %b%n", isPenguinDNA(chain1, chain2, sequence));
+//        System.out.println(containsOnlyOnce(chain1, sequence));
 
     }
 }
