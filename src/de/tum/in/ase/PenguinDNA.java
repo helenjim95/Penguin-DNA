@@ -86,17 +86,16 @@ public class PenguinDNA {
 //        This means that both chains (first two method parameters) should be able to bind to each other
 //        they contain the given nucleotide sequence (third method parameter).
 //        The nucleotide sequence can be in either chain, but should not occur more than once.
-        boolean isPenguinDNA = false;
+//        boolean isPenguinDNA = false;
         boolean isMatch = checkChains(chain1, chain2);
-        boolean isContain = false;
-
+//        boolean isContain = false;
         if (chain1.length() == 0 || chain2.length() == 0 || sequence.length() == 0) {
             return false;
-        } else {
-            if (isMatch && (chain1.contains(sequence) || chain2.contains(sequence))) {
-                return true;
-            }
+        } else if (!isMatch) {
             return false;
+        } else {
+            String binded_chain = chain1 + chain2;
+            return binded_chain.contains(sequence);
         }
     }
 
@@ -104,12 +103,12 @@ public class PenguinDNA {
         String chain1 = "ACGTT";
         String chain2 = "TGCAA";
         String chain3 = "GTTAC";
-        String sequence = "GT";
-        System.out.printf("checkChains 1 & 2 %b%n", checkChains(chain1, chain2));
-        System.out.printf("checkChains 2 & 3 %b%n", checkChains(chain2, chain3));
-        System.out.printf("checkChains 1 & 3 %b%n", checkChains(chain1, chain3));
-        System.out.printf("createMatchingChain %s%n", createMatchingChain(chain1));
-        System.out.printf("isPenguinDNA %B%n", isPenguinDNA(chain1, chain2, sequence));
+        String sequence = "TT";
+//        System.out.printf("checkChains 1 & 2 %b%n", checkChains(chain1, chain2));
+//        System.out.printf("checkChains 2 & 3 %b%n", checkChains(chain2, chain3));
+//        System.out.printf("checkChains 1 & 3 %b%n", checkChains(chain1, chain3));
+//        System.out.printf("createMatchingChain %s%n", createMatchingChain(chain1));
+        System.out.printf("isPenguinDNA %b%n", isPenguinDNA(chain1, chain2, sequence));
 
     }
 }
