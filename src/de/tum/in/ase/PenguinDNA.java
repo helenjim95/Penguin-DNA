@@ -51,7 +51,7 @@ public class PenguinDNA {
         List<String> matchingChain_list = new ArrayList<>();
         String matchingChain = "";
         if (chain1.length() == 0) {
-            return false;
+            return null;
         } else {
             for (int i = 0; i < chain1.length(); i++) {
                 String nucleotide_one = String.valueOf(chain1.charAt(i));
