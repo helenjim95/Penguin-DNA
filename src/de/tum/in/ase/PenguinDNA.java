@@ -9,7 +9,7 @@ public class PenguinDNA {
 //        The DNA of a penguin is made up of 4 nucleotides: Cytosine (C), Guanine (G), Adenine (A), and Thymine (T).
 //        Adenine and Thymine will form a bond, same for Guanine and Cytosine
         boolean isBond = true;
-        if (chain1.length() == 0 || chain2.length() == 0 || chain1.length() != chain2.length()) {
+        if (chain1 == null || chain2 == null || chain1.length() == 0 || chain2.length() == 0 || chain1.length() != chain2.length()) {
             isBond = false;
         } else {
             for (int i = 0; i < chain1.length(); i++) {
