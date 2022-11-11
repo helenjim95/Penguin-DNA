@@ -89,4 +89,16 @@ public class PenguinDNA {
         return false;
     }
 
+    public static void main(String[] args) {
+        String chain1 = "ACGTT";
+        String chain2 = "TGCAA";
+        String chain3 = "GTTAC";
+        String sequence = "GT";
+        System.out.printf("checkChains 1 & 2 %b%n", checkChains(chain1, chain2));
+        System.out.printf("checkChains 2 & 3 %b%n", checkChains(chain2, chain3));
+        System.out.printf("checkChains 1 & 3 %b%n", checkChains(chain1, chain3));
+        System.out.printf("createMatchingChain %s%n", createMatchingChain(chain1));
+        System.out.printf("isPenguinDNA %B%n", isPenguinDNA(chain1, chain2, sequence));
+
+    }
 }
